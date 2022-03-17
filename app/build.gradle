@@ -51,8 +51,9 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation('org.apache.commons:commons-csv:1.9.0')
 
+    implementation 'org.slf4j:slf4j-api:1.7.32'
+    implementation 'mysql:mysql-connector-java:8.0.27'
     implementation 'org.controlsfx:controlsfx:11.1.1'
-    implementation 'org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0'
     implementation "org.kordamp.ikonli:ikonli-javafx:$iconliVersion"
     implementation "org.kordamp.ikonli:ikonli-fontawesome5-pack:$iconliVersion"
 
@@ -67,10 +68,6 @@ dependencies {
     testImplementation "org.testfx:testfx-junit5:$testFxVersion"
     testImplementation 'org.testfx:openjfx-monocle:jdk-12.0.1+2'
     testImplementation 'org.hamcrest:hamcrest:2.2'
-}
-
-application {
-    mainClass = 'groovyfx.music.db.App'
 }
 
 mainClassName = 'groovyfx.music.db.App'
