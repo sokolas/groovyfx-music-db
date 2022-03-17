@@ -3,12 +3,51 @@
  */
 package groovyfx.music.db
 
-class App {
-    String getGreeting() {
-        return 'Hello World!'
+import groovyfx.music.db.config.Datasource
+import groovyfx.music.db.controllers.Controller
+import javafx.application.Application
+import javafx.fxml.FXMLLoader
+import javafx.scene.Parent
+import javafx.scene.Scene
+import javafx.stage.Stage
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+
+import java.nio.file.Paths
+
+class App extends Application {
+    private static final Logger log = LoggerFactory.getLogger(App.class);
+
+    @Override
+    void init() throws Exception {
+        super.init();
+        if (!Datasource.INSTANCE.connect()) {
+            log.error("FATAL ERROR: Couldn't connect to datasource!");
+            System.exit(-1);
+        }
     }
 
     static void main(String[] args) {
-        println new App().greeting
+        launch(args);
+    }
+
+    @Override
+    void start(Stage primaryStage) throws Exception {
+        final String fxmlFile = System.getProperty("user.dir") + "/src/main/resources/views/main.fxml";
+        FXMLLoader loader = new FXMLLoader(Paths.get(fxmlFile).toUri().toURL());
+        Parent root = loader.load();
+
+        Controller controller = loader.getController();
+        controller.listArtists();
+
+        primaryStage.setTitle("Music Database");
+        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.show();
+    }
+
+    @Override
+    void stop() throws Exception {
+        super.stop();
+        Datasource.INSTANCE.disconnect();
     }
 }

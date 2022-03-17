@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  music-db:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3313:3313"
+    volumes:
+      - ./docker/music-db/my.cnf:/etc/mysql/my.cnf:ro,cached
+      - ./data/music-db:/usr/data:rw,cached
+      - ./sql/backup/music_db_backup.sql:/etc/mysql/backup.sql:ro,cached
+    env_file:
+      - ./docker/music-db/mysqldb.env
