@@ -1,4 +1,4 @@
-package groovyfx.music.db.services;
+package groovyfx.music.db.services
 
 interface CrudDAO<T, R> {
     List<T> findAll();

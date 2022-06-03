@@ -1,5 +1,6 @@
 package groovyfx.music.db.controllers
 
+import groovy.util.logging.Slf4j
 import groovyfx.music.db.models.Album
 import groovyfx.music.db.models.Artist
 import groovyfx.music.db.services.impl.AlbumDAOImpl
@@ -11,74 +12,72 @@ import javafx.fxml.FXML
 import javafx.scene.control.ProgressBar
 import javafx.scene.control.TableView
 import javafx.scene.layout.BorderPane
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
+@Slf4j
 class Controller {
-    private static final Logger log = LoggerFactory.getLogger(Controller.class);
 
     @FXML
-    private BorderPane mainPane;
+    private BorderPane mainPane
 
     @FXML
-    private TableView artistTable;
+    private TableView artistTable
 
     @FXML
-    private ProgressBar progressBar;
+    private ProgressBar progressBar
 
     void initialize() {
-        artistTable.getSelectionModel().selectFirst();
+        artistTable.getSelectionModel().selectFirst()
     }
 
     @FXML
     void listArtists() {
-        Task<ObservableList<Artist>> task = new GetAllArtistsTask();
+        Task<ObservableList<Artist>> task = new GetAllArtistsTask()
 
-        progressBar.progressProperty().bind(task.progressProperty());
-        progressBar.setVisible(true);
-        task.setOnSucceeded(e -> progressBar.setVisible(false));
-        task.setOnFailed(e -> progressBar.setVisible(false));
+        progressBar.progressProperty().bind(task.progressProperty())
+        progressBar.setVisible(true)
+        task.setOnSucceeded(e -> progressBar.setVisible(false))
+        task.setOnFailed(e -> progressBar.setVisible(false))
 
-        artistTable.itemsProperty().bind(task.valueProperty());
-        new Thread(task).start();
+        artistTable.itemsProperty().bind(task.valueProperty())
+        new Thread(task).start()
     }
 
     @FXML
     void listAlbumsForArtist() {
-        final Artist artist = (Artist) artistTable.getSelectionModel().getSelectedItem();
+        final Artist artist = (Artist) artistTable.getSelectionModel().getSelectedItem()
         if (artist != null) {
             Task<ObservableList<Album>> task = new Task<ObservableList<Album>>() {
                 @Override
                 protected ObservableList<Album> call() throws Exception {
-                    AlbumDAOImpl albumDAO = new AlbumDAOImpl();
-                    return FXCollections.observableArrayList(albumDAO.findAllByArtistId(artist.getId()));
+                    AlbumDAOImpl albumDAO = new AlbumDAOImpl()
+                    return FXCollections.observableArrayList(albumDAO.findAllByArtistId(artist.getId()))
                 }
             }
-            artistTable.itemsProperty().bind(task.valueProperty());
-            new Thread(task).start();
+            artistTable.itemsProperty().bind(task.valueProperty())
+            new Thread(task).start()
         } else {
-            log.warn("No Artist selected!");
+            log.warn("No Artist selected!")
         }
     }
 
     //TODO: Open Dialog Box to add the values.
     @FXML
     void updateArtist() {
-        final Artist artist = (Artist) artistTable.getSelectionModel().getSelectedItem();
+        final Artist artist = (Artist) artistTable.getSelectionModel().getSelectedItem()
         Task<Artist> task = new Task<Artist>() {
             @Override
             protected Artist call() throws Exception {
-                ArtistDAOImpl artistDAO = new ArtistDAOImpl();
-                return artistDAO.update(new Artist(artist.getId(), "Wizkid"));
+                ArtistDAOImpl artistDAO = new ArtistDAOImpl()
+                return artistDAO.update(new Artist(artist.getId(), "Wizkid"))
             }
-        };
+        }
         task.setOnSucceeded(e -> {
             if (task.valueProperty().get() != null) {
-                artist.setName("Wizkid");
+                artist.setName("Wizkid")
 //                artistTable.refresh(); - may not be needed in recent versions of jfx
             }
-        });
-        new Thread(task).start();
+        })
+        new Thread(task).start()
     }
 }
 
@@ -86,6 +85,6 @@ class Controller {
 class GetAllArtistsTask extends Task<ObservableList<Artist>> {
     @Override
     protected ObservableList<Artist> call() throws Exception {
-        return FXCollections.observableArrayList(new ArtistDAOImpl().findAll());
+        return FXCollections.observableArrayList(new ArtistDAOImpl().findAll())
     }
 }

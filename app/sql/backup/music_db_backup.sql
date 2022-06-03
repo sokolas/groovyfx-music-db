@@ -1,67 +1,67 @@
 CREATE DATABASE IF NOT EXISTS music_db;
 
 CREATE TABLE IF NOT EXISTS Artists(
-    _ID INT PRIMARY KEY AUTO_INCREMENT,
-    _Name VARCHAR(255) UNIQUE NOT NULL
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    NAME VARCHAR(255) UNIQUE NOT NULL
 );
-INSERT INTO Artists(_Name) VALUES('Davido');
-INSERT INTO Artists(_Name) VALUES('Diamond Platnumz');
-INSERT INTO Artists(_Name) VALUES('Wizkid');
-INSERT INTO Artists(_Name) VALUES('Fireboy DML');
-INSERT INTO Artists(_Name) VALUES('Bisa Kdei');
-INSERT INTO Artists(_Name) VALUES('Olamide');
-INSERT INTO Artists(_Name) VALUES('Sauti Sol');
-INSERT INTO Artists(_Name) VALUES('Emmerson');
-INSERT INTO Artists(_Name) VALUES('Drizilik');
-INSERT INTO Artists(_Name) VALUES('Adekunle Gold');
-INSERT INTO Artists(_Name) VALUES('Burna Boy');
-INSERT INTO Artists(_Name) VALUES('Fela Kuti');
-INSERT INTO Artists(_Name) VALUES('Shine P');
-INSERT INTO Artists(_Name) VALUES('Magic System');
-INSERT INTO Artists(_Name) VALUES('Kzeebigname');
+INSERT INTO Artists(NAME) VALUES('Davido');
+INSERT INTO Artists(NAME) VALUES('Diamond Platnumz');
+INSERT INTO Artists(NAME) VALUES('Wizkid');
+INSERT INTO Artists(NAME) VALUES('Fireboy DML');
+INSERT INTO Artists(NAME) VALUES('Bisa Kdei');
+INSERT INTO Artists(NAME) VALUES('Olamide');
+INSERT INTO Artists(NAME) VALUES('Sauti Sol');
+INSERT INTO Artists(NAME) VALUES('Emmerson');
+INSERT INTO Artists(NAME) VALUES('Drizilik');
+INSERT INTO Artists(NAME) VALUES('Adekunle Gold');
+INSERT INTO Artists(NAME) VALUES('Burna Boy');
+INSERT INTO Artists(NAME) VALUES('Fela Kuti');
+INSERT INTO Artists(NAME) VALUES('Shine P');
+INSERT INTO Artists(NAME) VALUES('Magic System');
+INSERT INTO Artists(NAME) VALUES('Kzeebigname');
 
 CREATE TABLE IF NOT EXISTS Albums(
-    _ID INT PRIMARY KEY AUTO_INCREMENT,
+    ID INT PRIMARY KEY AUTO_INCREMENT,
     ArtistID INT NOT NULL,
-    _Name VARCHAR(255) NOT NULL,
-    FOREIGN KEY (ArtistID) REFERENCES Artists(_ID)
+    NAME VARCHAR(255) NOT NULL,
+    FOREIGN KEY (ArtistID) REFERENCES Artists(ID)
 );
-INSERT INTO Albums(ArtistID, _Name) VALUES(1, 'Single');
-INSERT INTO Albums(ArtistID, _Name) VALUES(1, 'A Better Time');
-INSERT INTO Albums(ArtistID, _Name) VALUES(2, 'Single');
-INSERT INTO Albums(ArtistID, _Name) VALUES(3, 'Ayo');
-INSERT INTO Albums(ArtistID, _Name) VALUES(3, 'Single');
-INSERT INTO Albums(ArtistID, _Name) VALUES(3, 'Made in Lagos');
-INSERT INTO Albums(ArtistID, _Name) VALUES(4, 'Laughter, Tears & Goosebumps');
-INSERT INTO Albums(ArtistID, _Name) VALUES(4, 'APOLLO');
-INSERT INTO Albums(ArtistID, _Name) VALUES(5, 'Breakthrough');
-INSERT INTO Albums(ArtistID, _Name) VALUES(6, 'Eyan Maywheather');
-INSERT INTO Albums(ArtistID, _Name) VALUES(6, 'YBNL');
-INSERT INTO Albums(ArtistID, _Name) VALUES(6, 'UV Scuti');
-INSERT INTO Albums(ArtistID, _Name) VALUES(6, 'Carpe Diem');
-INSERT INTO Albums(ArtistID, _Name) VALUES(7, 'Afrikan Sauce');
-INSERT INTO Albums(ArtistID, _Name) VALUES(7, 'Single');
-INSERT INTO Albums(ArtistID, _Name) VALUES(8, '2 Fut Arata');
-INSERT INTO Albums(ArtistID, _Name) VALUES(8, 'Borbor Bele');
-INSERT INTO Albums(ArtistID, _Name) VALUES(8, 'Survivor');
-INSERT INTO Albums(ArtistID, _Name) VALUES(8, '9 Lives');
-INSERT INTO Albums(ArtistID, _Name) VALUES(9, 'Shukubly');
-INSERT INTO Albums(ArtistID, _Name) VALUES(10, 'Gold');
-INSERT INTO Albums(ArtistID, _Name) VALUES(10, 'About 30');
-INSERT INTO Albums(ArtistID, _Name) VALUES(11, 'The Lion King: The Gift');
-INSERT INTO Albums(ArtistID, _Name) VALUES(11, 'African Giant');
-INSERT INTO Albums(ArtistID, _Name) VALUES(12, 'Best of the Black President');
-INSERT INTO Albums(ArtistID, _Name) VALUES(13, 'Still Shine P');
-INSERT INTO Albums(ArtistID, _Name) VALUES(13, 'Single');
-INSERT INTO Albums(ArtistID, _Name) VALUES(14, 'Premier Gaou');
-INSERT INTO Albums(ArtistID, _Name) VALUES(15, 'Best of Kzeebigname, Vol. 1');
+INSERT INTO Albums(ArtistID, NAME) VALUES(1, 'Single');
+INSERT INTO Albums(ArtistID, NAME) VALUES(1, 'A Better Time');
+INSERT INTO Albums(ArtistID, NAME) VALUES(2, 'Single');
+INSERT INTO Albums(ArtistID, NAME) VALUES(3, 'Ayo');
+INSERT INTO Albums(ArtistID, NAME) VALUES(3, 'Single');
+INSERT INTO Albums(ArtistID, NAME) VALUES(3, 'Made in Lagos');
+INSERT INTO Albums(ArtistID, NAME) VALUES(4, 'Laughter, Tears & Goosebumps');
+INSERT INTO Albums(ArtistID, NAME) VALUES(4, 'APOLLO');
+INSERT INTO Albums(ArtistID, NAME) VALUES(5, 'Breakthrough');
+INSERT INTO Albums(ArtistID, NAME) VALUES(6, 'Eyan Maywheather');
+INSERT INTO Albums(ArtistID, NAME) VALUES(6, 'YBNL');
+INSERT INTO Albums(ArtistID, NAME) VALUES(6, 'UV Scuti');
+INSERT INTO Albums(ArtistID, NAME) VALUES(6, 'Carpe Diem');
+INSERT INTO Albums(ArtistID, NAME) VALUES(7, 'Afrikan Sauce');
+INSERT INTO Albums(ArtistID, NAME) VALUES(7, 'Single');
+INSERT INTO Albums(ArtistID, NAME) VALUES(8, '2 Fut Arata');
+INSERT INTO Albums(ArtistID, NAME) VALUES(8, 'Borbor Bele');
+INSERT INTO Albums(ArtistID, NAME) VALUES(8, 'Survivor');
+INSERT INTO Albums(ArtistID, NAME) VALUES(8, '9 Lives');
+INSERT INTO Albums(ArtistID, NAME) VALUES(9, 'Shukubly');
+INSERT INTO Albums(ArtistID, NAME) VALUES(10, 'Gold');
+INSERT INTO Albums(ArtistID, NAME) VALUES(10, 'About 30');
+INSERT INTO Albums(ArtistID, NAME) VALUES(11, 'The Lion King: The Gift');
+INSERT INTO Albums(ArtistID, NAME) VALUES(11, 'African Giant');
+INSERT INTO Albums(ArtistID, NAME) VALUES(12, 'Best of the Black President');
+INSERT INTO Albums(ArtistID, NAME) VALUES(13, 'Still Shine P');
+INSERT INTO Albums(ArtistID, NAME) VALUES(13, 'Single');
+INSERT INTO Albums(ArtistID, NAME) VALUES(14, 'Premier Gaou');
+INSERT INTO Albums(ArtistID, NAME) VALUES(15, 'Best of Kzeebigname, Vol. 1');
 
 CREATE TABLE IF NOT EXISTS Songs(
-    _ID INT PRIMARY KEY AUTO_INCREMENT,
+    ID INT PRIMARY KEY AUTO_INCREMENT,
     Title VARCHAR(255) NOT NULL,
     Track INT NOT NULL,
     AlbumID INT NOT NULL,
-    FOREIGN KEY (AlbumID) REFERENCES Albums(_ID)
+    FOREIGN KEY (AlbumID) REFERENCES Albums(ID)
 );
 INSERT INTO Songs(Title, Track, AlbumID) VALUES('If', 1, 1);
 INSERT INTO Songs(Title, Track, AlbumID) VALUES('Fall', 2, 1);
@@ -128,10 +128,10 @@ INSERT INTO Songs(Title, Track, AlbumID) VALUES('Premier Gaou', 1, 28);
 INSERT INTO Songs(Title, Track, AlbumID) VALUES('Spoil You With Love', 5, 29);
 
 CREATE OR REPLACE VIEW ArtistList AS
-SELECT art._Name as `Artist`, s.Title as `Song`, s.Track, alb._Name AS `Album`
+SELECT art.NAME as `Artist`, s.Title as `Song`, s.Track, alb.NAME AS `Album`
 FROM Artists art
-JOIN Albums alb ON alb.ArtistID = art._ID
-JOIN Songs s ON s.AlbumID = alb._ID
-WHERE art._Name IS NOT NULL;
+JOIN Albums alb ON alb.ArtistID = art.ID
+JOIN Songs s ON s.AlbumID = alb.ID
+WHERE art.NAME IS NOT NULL;
 
 COMMIT;

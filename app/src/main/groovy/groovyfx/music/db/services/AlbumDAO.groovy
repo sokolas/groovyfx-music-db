@@ -1,6 +1,6 @@
-package groovyfx.music.db.services;
+package groovyfx.music.db.services
 
-import groovyfx.music.db.models.Album;
+import groovyfx.music.db.models.Album
 
 interface AlbumDAO extends CrudDAO<Album, Integer> {
     List<Album> findAllByArtistId(Integer artistId);

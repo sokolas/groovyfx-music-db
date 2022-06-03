@@ -4,38 +4,38 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 
 class Artist {
-    private final SimpleIntegerProperty id = new SimpleIntegerProperty();
-    private final SimpleStringProperty name = new SimpleStringProperty();
+    private final SimpleIntegerProperty id = new SimpleIntegerProperty()
+    private final SimpleStringProperty name = new SimpleStringProperty()
 
     Artist(int id, String name) {
-        this.id.set(id);
-        this.name.set(name);
+        this.id.set(id)
+        this.name.set(name)
     }
 
     int getId() {
-        return id.get();
+        return id.get()
     }
 
     SimpleIntegerProperty idProperty() {
-        return id;
+        return id
     }
 
     void setId(int id) {
-        this.id.set(id);
+        this.id.set(id)
     }
 
     String getName() {
-        return name.get();
+        return name.get()
     }
 
     SimpleStringProperty nameProperty() {
-        return name;
+        return name
     }
 
     void setName(String name) {
-        this.name.set(name);
+        this.name.set(name)
     }
 
     @Override
-    String toString() { return "Artist{" + "\"ID\": " + id.get() + ", \"Name\": \"" + name.get() + '\"' + '}'; }
+    String toString() { return "Artist{" + "\"ID\": " + id.get() + ", \"Name\": \"" + name.get() + '\"' + '}' }
 }

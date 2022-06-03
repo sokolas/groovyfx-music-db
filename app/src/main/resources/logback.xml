@@ -20,7 +20,7 @@
         </encoder>
     </appender>
 
-    <root level="${logLevel}">
-        <appender-ref ref="${appender}"/>
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT_COLOR"/>
     </root>
 </configuration>
